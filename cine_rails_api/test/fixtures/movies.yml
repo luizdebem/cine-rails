@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: MyString
+  synopsis: MyString
+  rate: 1.5
+
+two:
+  title: MyString
+  year: MyString
+  synopsis: MyString
+  rate: 1.5
