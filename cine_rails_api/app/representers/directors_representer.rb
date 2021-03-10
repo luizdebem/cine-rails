@@ -5,15 +5,16 @@ class DirectorsRepresenter
   end
 
   def as_json
-    moviesFormat =       @movies.map do |movie|
-      {
-        id: movie.id,
-        title: movie.title,
-        year: movie.year, 
-        synopsis: movie.synopsis,
-        rate: movie.rate,
-      }
+    moviesFormat = @movies.map do |movie|
+    {
+      id: movie.id,
+      title: movie.title,
+      year: movie.year, 
+      synopsis: movie.synopsis,
+      rate: movie.rate,
+    }
     end
+    
     {
       id: @director.id,
       name: @director.name,
