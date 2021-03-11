@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import MovieList from './components/MovieList/MovieList';
 import MovieForm from './components/MovieForm/MovieForm';
+import DirectorPage from './components/DirectorPage/DirectorPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Route path="/" component={MovieList} exact></Route>
           <Route path="/add" component={MovieForm}></Route>
+          <Route path="/director/:id" component={DirectorPage}></Route>
         </Switch>
       </BrowserRouter>
     </>
