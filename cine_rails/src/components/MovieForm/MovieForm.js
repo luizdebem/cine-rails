@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
 import { Form, Container, Row, Col, Button } from 'react-bootstrap';
+import { ApiService } from '../../services/ApiService';
 
 const MovieForm = () => {
   const [validated, setValidated] = useState(false);
@@ -26,8 +27,7 @@ const MovieForm = () => {
       return;
     }
 
-    const res = await axios.post('http://localhost:3000/movies', formData);
-    console.log(res);
+    const res = await new ApiService().postMovie(formData);
   }
 
   return (

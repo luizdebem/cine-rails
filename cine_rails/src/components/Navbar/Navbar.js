@@ -13,7 +13,7 @@ const Navbar = () => {
           <LinkContainer to="/">
             <Nav.Link>Todos os filmes</Nav.Link>
           </LinkContainer>
-          <LinkContainer to="/add">
+          <LinkContainer to="/form">
             <Nav.Link>Adicionar um filme</Nav.Link>
           </LinkContainer>
         </Nav>

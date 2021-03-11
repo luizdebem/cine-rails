@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import MovieCard from '../MovieCard/MovieCard';
-
+import { ApiService } from '../../services/ApiService';
 const DirectorPage = (props) => {
   const [director, setDirector] = useState([]);
 
   async function fetchDirector() {
     const id = props.match.params.id;
-    const res = await fetch(`http://localhost:3000/directors/${id}`);
-    const director = await res.json();
-    setDirector(director);
-    console.log(director);
+    const res = await new ApiService().getDirectorById(id);
+    setDirector(res.data);
   }
 
   useEffect(() => {

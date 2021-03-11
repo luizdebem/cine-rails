@@ -12,7 +12,7 @@ function App() {
       <Navbar />
         <Switch>
           <Route path="/" component={MovieList} exact></Route>
-          <Route path="/add" component={MovieForm}></Route>
+          <Route path="/form" component={MovieForm}></Route>
           <Route path="/director/:id" component={DirectorPage}></Route>
         </Switch>
       </BrowserRouter>
