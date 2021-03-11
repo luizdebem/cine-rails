@@ -31,7 +31,7 @@ const MovieForm = () => {
   }
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5" style={{ color: 'white' }}>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Título do filme</Form.Label>
