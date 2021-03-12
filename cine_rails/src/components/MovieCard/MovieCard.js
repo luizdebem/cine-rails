@@ -12,10 +12,15 @@ const MovieCard = (props) => {
         <Card.Subtitle className="mb-2">
           {props.movie.director && <Link to={{ pathname: `/director/${props.movie.director.id}`, name: props.movie.director.name }}>{props.movie.director.name}</Link>}
         </Card.Subtitle>
+        <Card.Subtitle className="mt-2 mb-2">
+          Nota: {props.movie.rate}
+        </Card.Subtitle>
         <Card.Text className="mb-5">
           {props.movie.synopsis}
         </Card.Text>
-        <Button className="submit-btn" variant="primary">Editar filme</Button>
+        <Link to={{ pathname: '/form', state: { movie: props.movie } }}>
+          <Button className="submit-btn" variant="primary">Editar filme</Button>
+        </Link>
       </Card.Body>
     </Card>
   )

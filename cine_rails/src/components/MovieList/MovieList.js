@@ -19,7 +19,6 @@ const MovieList = () => {
 
   return (
     <div className="movie-list-container">
-      {console.log(movies)}
       {movies.length && movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
     </div>
   );

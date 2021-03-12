@@ -15,4 +15,8 @@ export class ApiService {
   postMovie(movie) {
     return axios.post(`${this.uri}/movies`, movie);
   }
+
+  updateMovie(movieId, data) {
+    return axios.put(`${this.uri}/movies/${movieId}`, data);
+  }
 }
