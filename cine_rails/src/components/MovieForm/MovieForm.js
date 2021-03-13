@@ -37,7 +37,7 @@ const MovieForm = (props) => {
     if (isEdit) {
       await new ApiService().updateMovie(movie.id, formData);
     } else {
-      await new ApiService().postMovie(movie.id, formData);
+      await new ApiService().postMovie(formData);
     }
   }
 

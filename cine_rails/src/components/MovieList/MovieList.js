@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { ApiService } from '../../services/ApiService';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieList.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -19,7 +20,15 @@ const MovieList = () => {
 
   return (
     <div className="movie-list-container">
-      {movies.length && movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
+      <Container>
+        <Row>
+        {movies.length && movies.map(movie => {
+        return (
+            <MovieCard key={movie.id} movie={movie} />
+        );
+      })}
+        </Row>
+      </Container>
     </div>
   );
 }
