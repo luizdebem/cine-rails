@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar as NavbarBootstrap, Nav, Form, FormControl, Button, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router';
 import './Navbar.css';
+import { useHistory } from 'react-router-dom';
 
 const Navbar = ({ location }) => {
-  console.log(location);
+  const [searchInput, setSearchInput] = useState('');
+  const history = useHistory();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    history.push(`/search?title=${searchInput}`)
+  }
+
   return (
     <>
       <NavbarBootstrap bg="dark" variant="dark">
@@ -20,9 +28,9 @@ const Navbar = ({ location }) => {
             <Nav.Link className={location.pathname === '/form' ? 'nav-link current' : 'nav-link'}>Adicionar um filme</Nav.Link>
           </LinkContainer>
         </Row>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
+        <Form inline onSubmit={handleSubmit}>
+          <FormControl type="text" placeholder="Busque algum filme!" className="mr-sm-2" onChange={(e) => setSearchInput(e.target.value)} />
+          <Button type="submit" variant="outline-info">Buscar</Button>
         </Form>
       </NavbarBootstrap>
     </>

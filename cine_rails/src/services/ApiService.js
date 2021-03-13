@@ -19,4 +19,8 @@ export class ApiService {
   updateMovie(movieId, data) {
     return axios.put(`${this.uri}/movies/${movieId}`, data);
   }
+
+  getMovieByTitle(movieTitle) {
+    return axios.get(`${this.uri}/movies?title=${movieTitle}`);
+  }
 }

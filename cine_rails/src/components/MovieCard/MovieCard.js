@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const MovieCard = (props) => {
   return (
-    <Card className="m-5">
+    <Card className="m-5 round">
       {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body className="card-body">
         <Card.Title>{props.movie.title}, {props.movie.year}</Card.Title>

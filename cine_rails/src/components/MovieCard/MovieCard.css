@@ -1,3 +1,7 @@
+.round {
+  border-radius: 15px !important;
+}
+
 .card-body {
   position: relative;
 }
