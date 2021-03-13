@@ -1,7 +1,16 @@
 class MoviesController < ApplicationController
   def index
-    movies = Movie.all
-    render json: MoviesRepresenter.new(movies).as_json, status: :ok
+    if params[:title]
+      movie = Movie.find_by_title(params[:title])
+      if movie
+        render json: MoviesRepresenter.new(movie).as_json, status: :ok
+      else
+        render json: {message: "Movie not found"}, status: :not_found
+      end
+    else print("Não temos title")
+      movies = Movie.all
+      render json: MoviesRepresenter.new(movies).as_json, status: :ok
+    end
   end
 
   def show
