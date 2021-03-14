@@ -30,7 +30,7 @@ const Navbar = ({ location }) => {
           </Nav>
           <Form inline onSubmit={handleSubmit}>
             <FormControl type="text" placeholder="Busque algum filme!" className="mr-sm-2" onChange={(e) => setSearchInput(e.target.value)} />
-            <Button type="submit" variant="outline-info">Buscar</Button>
+            <Button className="spaced" type="submit" variant="outline-info">Buscar</Button>
           </Form>
         </NavbarBootstrap.Collapse>
       </NavbarBootstrap>
