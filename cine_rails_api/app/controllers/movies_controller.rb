@@ -7,8 +7,8 @@ class MoviesController < ApplicationController
       else
         render json: {message: "Movie not found"}, status: :not_found
       end
-    else print("Não temos title")
-      movies = Movie.all
+    else
+      movies = Movie.order('created_at DESC')
       render json: MoviesRepresenter.new(movies).as_json, status: :ok
     end
   end
