@@ -1,3 +1,3 @@
 export const environment = {
-  get URI_API() { return "http://localhost:3000" },
+  get URI_API() { return "https://cine-rails-api.herokuapp.com" },
 };
