@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Form, Container, Row, Col, Button } from 'react-bootstrap';
 import { ApiService } from '../../services/ApiService';
+import { useHistory } from 'react-router-dom';
 
 const MovieForm = (props) => {
   const movie = props && props.location && props.location.state && props.location.state.movie;
@@ -16,6 +17,7 @@ const MovieForm = (props) => {
     rate: 1,
     synopsis: ''
   });
+  const history = useHistory();
 
   useEffect(() => {
     if (isEdit) {
@@ -25,7 +27,6 @@ const MovieForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const form = e.currentTarget;
     setValidated(true);
 
@@ -39,6 +40,7 @@ const MovieForm = (props) => {
     } else {
       await new ApiService().postMovie(formData);
     }
+    history.push('/');
   }
 
   return (
@@ -74,7 +76,7 @@ const MovieForm = (props) => {
           <Col>
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Avaliação</Form.Label>
-              <Form.Control value={isEdit ? movie.rate : ''} required as="select" onChange={(e) => { setFormData({ ...formData, rate: e.target.value }) }}>
+              <Form.Control value={formData.rate} required as="select" onChange={(e) => { console.log(e.target.value); setFormData({ ...formData, rate: e.target.value }) }}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -87,7 +89,7 @@ const MovieForm = (props) => {
 
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Insira uma sinopse</Form.Label>
-          <Form.Control defaultValue={isEdit ? movie.synopsis : null} required as="textarea" rows={3} onChange={(e) => { setFormData({ ...formData, synopsis: e.target.value }) }} />
+          <Form.Control defaultValue={isEdit ? movie.synopsis : null} required as="textarea" rows={6} onChange={(e) => { setFormData({ ...formData, synopsis: e.target.value }) }} />
           <Form.Control.Feedback type="invalid">
             Insira uma sinopse.
           </Form.Control.Feedback>

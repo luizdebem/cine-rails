@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import MovieCard from '../MovieCard/MovieCard';
 import { ApiService } from '../../services/ApiService';
+import { Container, Row, Col } from 'react-bootstrap';
 const DirectorPage = (props) => {
   const [director, setDirector] = useState([]);
 
@@ -20,7 +21,15 @@ const DirectorPage = (props) => {
         <h1 style={{ color: 'white', margin: '25px' }}>Filmes dirigidos por {director.name}</h1>
 
         <div className="movie-list-container">
-          {director.movies && director.movies.length && director.movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
+          <Container>
+            <Row>
+              {director.movies.length && director.movies.map(movie => {
+                return (
+                  <MovieCard key={movie.id} movie={movie} />
+                );
+              })}
+            </Row>
+          </Container>
         </div>
 
       </div>}

@@ -12,7 +12,6 @@ const SearchPage = (props) => {
     const title = query.title;
     try {
       const res = await new ApiService().getMovieByTitle(title);
-      console.log('asd')
       setMovie(res.data);
     } catch(err) {
       setError(true);
@@ -20,8 +19,10 @@ const SearchPage = (props) => {
   }
 
   useEffect(() => {
+    setMovie(null);
+    setError(false);
     fetchMovie();
-  }, []);
+  }, [props.location]);
 
   return (
     <>

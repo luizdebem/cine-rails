@@ -1,8 +1,9 @@
 .nav-link {
   color: white;
+  color: rgba(0,0,0,.5) !important;
 }
 
 .current {
-  background-color: #283036;
   border-radius: 10px;
+  color: rgba(0,0,0,.9) !important;
 }

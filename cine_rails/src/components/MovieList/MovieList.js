@@ -3,10 +3,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { ApiService } from '../../services/ApiService';
 import MovieCard from '../MovieCard/MovieCard';
-import './MovieList.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const MovieList = () => {
+const MovieList = (props) => {
   const [movies, setMovies] = useState([]);
 
   async function fetchMovies() {
@@ -16,7 +15,7 @@ const MovieList = () => {
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [props.location]);
 
   return (
     <div className="movie-list-container">
