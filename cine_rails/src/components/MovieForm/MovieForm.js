@@ -48,9 +48,9 @@ const MovieForm = (props) => {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Título do filme</Form.Label>
-          <Form.Control defaultValue={isEdit ? movie.title : null} required type="text" placeholder="Título" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} />
+          <Form.Control defaultValue={isEdit ? movie.title : null} required minlength="3" maxlength="30" type="text" placeholder="Título" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} />
           <Form.Control.Feedback type="invalid">
-            Insira um título.
+            Insira um título com pelo menos 3 caracteres e no máximo 30.
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -66,9 +66,9 @@ const MovieForm = (props) => {
           <Col>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Ano de lançamento</Form.Label>
-              <Form.Control defaultValue={isEdit ? movie.year : null} required type="text" placeholder="Ano" onChange={(e) => { setFormData({ ...formData, year: e.target.value }) }} />
+              <Form.Control defaultValue={isEdit ? movie.year : null} required type="number" min="1" max="2030" placeholder="Ano" onChange={(e) => { setFormData({ ...formData, year: e.target.value }) }} />
               <Form.Control.Feedback type="invalid">
-                Insira um ano de lançamento.
+                Insira um ano de lançamento válido.
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
