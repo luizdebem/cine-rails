@@ -48,7 +48,7 @@ const MovieForm = (props) => {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Título do filme</Form.Label>
-          <Form.Control defaultValue={isEdit ? movie.title : null} required type="text" placeholder="Título"  onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} />
+          <Form.Control defaultValue={isEdit ? movie.title : null} required type="text" placeholder="Título" onChange={(e) => { setFormData({ ...formData, title: e.target.value }) }} />
           <Form.Control.Feedback type="invalid">
             Insira um título.
           </Form.Control.Feedback>
@@ -76,7 +76,7 @@ const MovieForm = (props) => {
           <Col>
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Avaliação</Form.Label>
-              <Form.Control value={formData.rate} required as="select" onChange={(e) => { console.log(e.target.value); setFormData({ ...formData, rate: e.target.value }) }}>
+              <Form.Control value={formData.rate} required as="select" onChange={(e) => { setFormData({ ...formData, rate: e.target.value }) }}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -95,7 +95,7 @@ const MovieForm = (props) => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button type="submit">Submit form</Button>
+        <Button type="submit">Cadastrar filme</Button>
       </Form>
     </Container>
   )

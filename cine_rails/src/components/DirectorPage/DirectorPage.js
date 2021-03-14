@@ -24,6 +24,12 @@ const DirectorPage = (props) => {
           <Container>
             <Row>
               {director.movies.length && director.movies.map(movie => {
+                movie = {
+                  ...movie,
+                  director: {
+                    name: director.name
+                  }
+                }
                 return (
                   <MovieCard key={movie.id} movie={movie} />
                 );

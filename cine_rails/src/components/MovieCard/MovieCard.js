@@ -2,8 +2,21 @@ import React from 'react'
 import './MovieCard.css'
 import { Card, Button, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { ApiService } from '../../services/ApiService';
+import { useHistory } from 'react-router-dom';
 
 const MovieCard = (props) => {
+  const history = useHistory();
+
+  async function handleDelete() {
+    const id = props.movie.id;
+    try {
+      await new ApiService().deleteMovieById(id);
+    } catch(e) {}
+    history.push('/');
+  }
+
   return (
     <Col xs={12} md={6} lg={4} className="p-3">
       <Card className="round h-100">
@@ -17,12 +30,15 @@ const MovieCard = (props) => {
           <Card.Subtitle className="mt-2 mb-2">
             Nota: {props.movie.rate}
           </Card.Subtitle>
-          <Card.Text className="mb-5">
+          <Card.Text className="mb-5" style={{ textAlign: "justify" }}>
             Sinopse: {props.movie.synopsis}
           </Card.Text>
-          <Link to={{ pathname: '/form', state: { movie: props.movie } }}>
-            <Button className="submit-btn" variant="primary">Editar filme</Button>
-          </Link>
+          <div>
+            <Link to={{ pathname: '/form', state: { movie: props.movie } }}>
+              <Button className="submit-btn" variant="primary">Editar filme</Button>
+            </Link>
+            <DeleteIcon className="trash-icon" onClick={handleDelete} />
+          </div>
         </Card.Body>
       </Card>
     </Col>

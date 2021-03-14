@@ -23,4 +23,8 @@ export class ApiService {
   getMovieByTitle(movieTitle) {
     return axios.get(`${this.uri}/movies?title=${movieTitle}`);
   }
+
+  deleteMovieById(movieId) {
+    return axios.delete(`${this.uri}/movies/${movieId}`);
+  }
 }
